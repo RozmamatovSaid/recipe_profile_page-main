@@ -34,6 +34,20 @@ class profile_body_recipe extends StatelessWidget {
                 height: 130 * AppSizes.hRatio,
               ),
             ),
+            Positioned(
+              right: 8,
+              top: 8,
+              child: Container(
+                width: 28,
+                height: 28,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(14),
+                  color: AppColors.ReddishPink,
+                ),
+                alignment: Alignment.center,
+                child: SvgPicture.asset("assets/icons/heart.svg"),
+              ),
+            ),
           ],
         ),
         Container(
