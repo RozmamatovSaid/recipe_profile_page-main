@@ -23,4 +23,14 @@ class ApiClient {
       throw Exception("error 404");
     }
   }
+
+  Future<List<dynamic>> fetchOnBoarding() async {
+    var response = await dio.get('/onboarding/list');
+    if (response.statusCode == 200) {
+      List<dynamic> data = response.data;
+      return data;
+    } else {
+      throw Exception("xato");
+    }
+  }
 }

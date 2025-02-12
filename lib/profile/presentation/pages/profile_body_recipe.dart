@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:new_recipe_app/core/sizes.dart';
-import 'package:new_recipe_app/profile/presentation/pages/profile_view_model.dart';
 
 import '../../../core/utils/app_colors.dart';
 
