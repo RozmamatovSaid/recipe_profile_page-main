@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:new_recipe_app/categories/data/repositories/categories_repository.dart';
+import 'package:new_recipe_app/categories/presentation/manager/categories_view_model.dart';
+import 'package:new_recipe_app/categories/presentation/pages/categories_page.dart';
 import 'package:new_recipe_app/core/client.dart';
 import 'package:new_recipe_app/core/sizes.dart';
 import 'package:new_recipe_app/core/utils/theme.dart';
@@ -15,7 +18,7 @@ import 'package:new_recipe_app/profile/presentation/pages/profile_view_model.dar
 void main() => runApp(MyApp());
 
 final GoRouter _router = GoRouter(
-  initialLocation: '/onboarding',
+  initialLocation: '/categories',
   routes: [
     GoRoute(
       path: '/profile',
@@ -48,6 +51,16 @@ final GoRouter _router = GoRouter(
             client: ApiClient(),
           ),
           profileRepo: ProfileRepository(
+            client: ApiClient(),
+          ),
+        ),
+      ),
+    ),
+    GoRoute(
+      path: '/categories',
+      builder: (context, state) => CategoriesPage(
+        cvm: CategoriesViewModel(
+          repo: CategoriesRepository(
             client: ApiClient(),
           ),
         ),
