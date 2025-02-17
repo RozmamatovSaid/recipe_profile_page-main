@@ -16,6 +16,6 @@ final ThemeData darkTheme = ThemeData(
   ),
   appBarTheme: AppBarTheme(
     backgroundColor: AppColors.MainColor,
-    surfaceTintColor: Colors.transparent,
+    surfaceTintColor: Colors.red,
   ),
 );

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:new_recipe_app/categories/presentation/manager/categories_view_model.dart';
 
 class category_item extends StatelessWidget {
   const category_item({
@@ -16,6 +15,7 @@ class category_item extends StatelessWidget {
     return Column(
       spacing: 8,
       children: [
+        Text(text),
         ClipRRect(
           borderRadius: BorderRadius.circular(13),
           child: Image.network(
@@ -25,7 +25,6 @@ class category_item extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        Text(text),
       ],
     );
   }

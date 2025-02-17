@@ -6,6 +6,8 @@ import 'package:new_recipe_app/categories/presentation/pages/categories_page.dar
 import 'package:new_recipe_app/core/client.dart';
 import 'package:new_recipe_app/core/sizes.dart';
 import 'package:new_recipe_app/core/utils/theme.dart';
+import 'package:new_recipe_app/login/presentation/pages/login.dart';
+import 'package:new_recipe_app/login/presentation/pages/sign_up.dart';
 import 'package:new_recipe_app/onboarding/data/repositories/onboarding_repository.dart';
 import 'package:new_recipe_app/onboarding/presentation/manager/onboarding_view_model.dart';
 import 'package:new_recipe_app/onboarding/presentation/pages/onboarding_end.dart';
@@ -18,8 +20,16 @@ import 'package:new_recipe_app/profile/presentation/pages/profile_view_model.dar
 void main() => runApp(MyApp());
 
 final GoRouter _router = GoRouter(
-  initialLocation: '/categories',
+  initialLocation: '/login',
   routes: [
+    GoRoute(
+      path: '/SignUp',
+      builder: (context, state) => SignUp(),
+    ),
+    GoRoute(
+      path: '/login',
+      builder: (context, state) => Login(),
+    ),
     GoRoute(
       path: '/profile',
       builder: (context, state) => ProfilePage(
