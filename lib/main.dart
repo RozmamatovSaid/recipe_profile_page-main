@@ -6,6 +6,8 @@ import 'package:new_recipe_app/categories/presentation/pages/categories_page.dar
 import 'package:new_recipe_app/core/client.dart';
 import 'package:new_recipe_app/core/sizes.dart';
 import 'package:new_recipe_app/core/utils/theme.dart';
+import 'package:new_recipe_app/login/data/repositories/auth_repository.dart';
+import 'package:new_recipe_app/login/presentation/manager/login_view_model.dart';
 import 'package:new_recipe_app/login/presentation/pages/login.dart';
 import 'package:new_recipe_app/login/presentation/pages/sign_up.dart';
 import 'package:new_recipe_app/onboarding/data/repositories/onboarding_repository.dart';
@@ -23,12 +25,18 @@ final GoRouter _router = GoRouter(
   initialLocation: '/login',
   routes: [
     GoRoute(
-      path: '/SignUp',
-      builder: (context, state) => SignUp(),
+      path: '/login',
+      builder: (context, state) => LoginPage(
+        vm: LoginViewModel(
+          repo: AuthRepository(
+            client: ApiClient(),
+          ),
+        ),
+      ),
     ),
     GoRoute(
-      path: '/login',
-      builder: (context, state) => Login(),
+      path: '/SignUp',
+      builder: (context, state) => SignUp(),
     ),
     GoRoute(
       path: '/profile',
@@ -86,7 +94,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     AppSizes.init(context);
     return MaterialApp.router(
-      theme: darkTheme,
       debugShowCheckedModeBanner: false,
       routerConfig: _router,
     );

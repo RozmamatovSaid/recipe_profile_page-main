@@ -10,6 +10,7 @@ class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor:AppColors.MainColor,
       appBar: login_appbar_widget(title: 'Sign Up'),
       body: ListView(
         padding: EdgeInsets.only(right: 37, left: 37, top: 60),

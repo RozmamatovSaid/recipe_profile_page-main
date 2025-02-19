@@ -16,6 +16,7 @@ class login_appbar_widget extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      backgroundColor: AppColors.MainColor,
       centerTitle: true,
       title: Text(
         title,

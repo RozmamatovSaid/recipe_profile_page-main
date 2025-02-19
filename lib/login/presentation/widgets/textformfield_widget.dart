@@ -6,10 +6,14 @@ class textformfield_widget extends StatelessWidget {
     super.key,
     required this.text,
     required this.hintText,
+    this.controller,
+    this.validator,
   });
 
   final String text;
   final String hintText;
+  final TextEditingController? controller;
+  final String? Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +34,8 @@ class textformfield_widget extends StatelessWidget {
           height: 41,
           child: TextFormField(
             maxLines: 1,
+            controller: controller,
+            validator: validator,
             decoration: InputDecoration(
               hintText: hintText,
               hintStyle: TextStyle(

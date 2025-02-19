@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 
 class ApiClient {
-  final Dio dio = Dio(BaseOptions(baseUrl: "http://172.18.224.1:8888/api/v1"));
+  final Dio dio = Dio(BaseOptions(baseUrl: "http://172.30.192.1:8888/api/v1"));
 
   Future<Map<String, dynamic>> fetchMyProfile() async {
     var response = await dio.get('/auth/details/1');
@@ -43,6 +43,18 @@ class ApiClient {
       return dataCategories;
     } else {
       throw Exception("Error");
+    }
+  }
+
+  Future<String> login(String login, String password) async {
+    var response = await dio
+        .post('/auth/login', data: {'login': login, 'password': password});
+
+    if (response.statusCode == 200) {
+      Map<String, String> data = Map<String, String>.from(response.data);
+      return data['accessToken']!;
+    } else {
+      throw Exception("BIRODAR XATOLIK BOR ORTGA QAYT");
     }
   }
 }
