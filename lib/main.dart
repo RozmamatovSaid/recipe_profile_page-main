@@ -36,7 +36,13 @@ final GoRouter _router = GoRouter(
     ),
     GoRoute(
       path: '/SignUp',
-      builder: (context, state) => SignUp(),
+      builder: (context, state) => SignUp(
+        vm: LoginViewModel(
+          repo: AuthRepository(
+            client: ApiClient(),
+          ),
+        ),
+      ),
     ),
     GoRoute(
       path: '/profile',

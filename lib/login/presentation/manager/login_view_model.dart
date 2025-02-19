@@ -17,6 +17,14 @@ class LoginViewModel extends ChangeNotifier {
   final loginController = TextEditingController();
   final passwordController = TextEditingController();
 
+  // Sign Up
+  final nameController = TextEditingController();
+  final emailController = TextEditingController();
+  final numberController = TextEditingController();
+  final dateOfBirthdayController = TextEditingController();
+  final passwordSingUpController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
+
   Future<bool> login() async {
     try {
       await _repo.login(loginController.text, passwordController.text);
