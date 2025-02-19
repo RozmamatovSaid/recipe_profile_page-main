@@ -27,7 +27,7 @@ class SignUp extends StatelessWidget {
                 textformfield_widget(
                     text: "Date of birth", hintText: "DD / MM /YYY"),
                 textformfield_widget(
-                    text: "Password", hintText: " ● ● ● ● ● ● ● ● "),
+                    text: "Password", hintText: " ● ● ● ● ● ● ● ●  "),
                 textformfield_widget(
                     text: "Confirm Password", hintText: " ● ● ● ● ● ● ● ● "),
               ],
