@@ -36,6 +36,7 @@ class textformfield_widget extends StatelessWidget {
             maxLines: 1,
             controller: controller,
             validator: validator,
+            // onTap: ,
             decoration: InputDecoration(
               hintText: hintText,
               hintStyle: TextStyle(

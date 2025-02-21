@@ -12,7 +12,7 @@ class ProfileRepository {
     if (myProfile != null) return myProfile;
 
     var rawProfile = await client.fetchMyProfile();
-    myProfile = ProfileModel.fromJson(rawProfile);
+    myProfile = ProfileModel.fromJson(rawProfile!);
     return myProfile;
   }
 }

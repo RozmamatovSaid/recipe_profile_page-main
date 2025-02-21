@@ -1,15 +1,42 @@
 import 'package:dio/dio.dart';
+import 'package:go_router/go_router.dart';
+import 'package:new_recipe_app/core/routing/router.dart';
+import 'package:new_recipe_app/core/routing/routes.dart';
+import 'package:new_recipe_app/core/secure_storage.dart';
 
 class ApiClient {
-  final Dio dio = Dio(BaseOptions(baseUrl: "http://172.30.192.1:8888/api/v1"));
+  final Dio dio = Dio(BaseOptions(baseUrl: "http://172.24.176.1:8888/api/v1"));
 
   Future<Map<String, dynamic>> fetchMyProfile() async {
-    var response = await dio.get('/auth/details/1');
-    if (response.statusCode == 200) {
-      Map<String, dynamic> data = response.data;
-      return data;
-    } else {
-      throw Exception("Error 404");
+    try {
+      var response = await dio.get('/auth/me');
+
+      if (response.statusCode == 200) {
+        return response.data;
+      } else if (response.statusCode == 401) {
+        final credentials = await SecureStorage.getCredentials();
+
+        if (credentials == null || credentials['login'] == null || credentials['password'] == null) {
+          navigatorKey.currentContext!.go(Routes.login);
+          throw Exception("Login credentials not found.");
+        }
+        final jwt = await login(credentials['login']!, credentials['password']!);
+
+        await SecureStorage.deleteToken();
+        await SecureStorage.saveToken(jwt);
+
+        var newResponse = await dio.get('/auth/me');
+        if (newResponse.statusCode == 200) {
+          return newResponse.data;
+        } else {
+          navigatorKey.currentContext!.go(Routes.login);
+          throw Exception("User is not authorized.");
+        }
+      } else {
+        throw Exception("Profilni olishda xatolik yuz berdi.");
+      }
+    } catch (e) {
+      throw Exception("Error: $e");
     }
   }
 
