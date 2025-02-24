@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:new_recipe_app/core/routing/routes.dart';
-import 'package:new_recipe_app/login/presentation/manager/sign_up_viewmodel.dart';
 import 'package:new_recipe_app/profile_register/presentation/pages/profile_register.dart';
 import 'package:new_recipe_app/recipe_details/presentation/pages/recipe_details_page.dart';
-
 import '../../categories/data/repositories/categories_repository.dart';
 import '../../categories/presentation/manager/categories_view_model.dart';
 import '../../categories/presentation/pages/categories_page.dart';

@@ -25,6 +25,7 @@ class SignUpViewModel extends ChangeNotifier {
     _selectedDate = value ?? _selectedDate;
     notifyListeners();
   }
+
   Future signUp(BuildContext context) async {
     final result = await _authRepo.signUp(
       firstName: firstNameController.text,
@@ -48,5 +49,14 @@ class SignUpViewModel extends ChangeNotifier {
         context.go(Routes.onboarding);
       }
     }
+  }
+
+  Locale _currentLocale = Locale("en");
+
+  Locale get currentLocale => _currentLocale;
+
+  set currentLocale(Locale locale) {
+    _currentLocale = locale;
+    notifyListeners();
   }
 }

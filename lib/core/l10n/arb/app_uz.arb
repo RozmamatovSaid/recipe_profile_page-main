@@ -1,0 +1,12 @@
+{
+  "signUp": "Ro'yxatdan o'tish",
+  "fullName": "To'liq Ism",
+  "lastName": "Familiya",
+  "userName": "Foydalanuvchi Nomi",
+  "email": "Elektron Pochta",
+  "mobileNumber": "Mobil Raqam",
+  "dateOfBirth": "Tug'ulgan Kuni",
+  "password": "Parol",
+  "confirmPassword": "Parolni Tasdiqlang",
+  "signUpButton": "Ro'yxatdan o'tish"
+}

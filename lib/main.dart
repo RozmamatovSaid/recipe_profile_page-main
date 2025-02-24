@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:new_recipe_app/core/l10n/app_localizations.dart';
+import 'package:new_recipe_app/core/l10n/app_localizations_en.dart';
 import 'package:new_recipe_app/core/sizes.dart';
+import 'package:new_recipe_app/login/presentation/manager/sign_up_viewmodel.dart';
 import 'package:provider/provider.dart';
 import 'core/dependencies.dart' show providers;
 import 'core/routing/router.dart';
@@ -21,6 +25,17 @@ class MyApp extends StatelessWidget {
         theme: AppThemes.darkTheme,
         debugShowCheckedModeBanner: false,
         routerConfig: router,
+        localizationsDelegates: [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+          MyLocalizations.delegate,
+        ],
+        supportedLocales: [
+          Locale("uz"),
+          Locale("en"),
+        ],
+        locale: context.watch<SignUpViewModel>().currentLocale,
       ),
     );
   }

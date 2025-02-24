@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:new_recipe_app/core/utils/app_colors.dart';
 import 'package:new_recipe_app/login/presentation/manager/sign_up_viewmodel.dart';
+import 'package:new_recipe_app/login/presentation/widgets/actions_language_textbutton.dart';
 import 'package:new_recipe_app/login/presentation/widgets/show_data_picker.dart';
 import 'package:new_recipe_app/login/presentation/widgets/login_appbar_widget.dart';
 import 'package:new_recipe_app/login/presentation/widgets/signup_button.dart';
@@ -18,7 +19,14 @@ class SignUp extends StatelessWidget {
       ),
       builder: (context, child) => Scaffold(
         backgroundColor: AppColors.beigeColor,
-        appBar: login_appbar_widget(title: 'Sign Up'),
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text(
+            "SignUp",
+            style: TextStyle(),
+          ),
+          // actions: [Icon(Icons. )],
+        ),
         body: ListView(
           padding: EdgeInsets.only(
             right: 37,
@@ -73,7 +81,14 @@ class SignUp extends StatelessWidget {
                     controller:
                         context.read<SignUpViewModel>().passwordController,
                     validator: (value) {
-                      if (context.read<SignUpViewModel>().passwordController.text != context.read<SignUpViewModel>().confirmPasswordController.text) {
+                      if (context
+                              .read<SignUpViewModel>()
+                              .passwordController
+                              .text !=
+                          context
+                              .read<SignUpViewModel>()
+                              .confirmPasswordController
+                              .text) {
                         return "Both passwords must be the same.";
                       } else {
                         return null;

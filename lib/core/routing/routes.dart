@@ -3,6 +3,6 @@ class Routes {
   static const signup = "/signup";
   static const categories = '/categories';
   static const onboarding = "/onboarding";
-  static const registerProfile = '/registerProfile';
-  static const recipeDetails = '/recipeDetails';
+  static const registerProfile = '/register-profile';
+  static const recipeDetails = '/recipe-details';
 }
