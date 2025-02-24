@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:new_recipe_app/core/routing/routes.dart';
 import 'package:new_recipe_app/login/presentation/manager/sign_up_viewmodel.dart';
+import 'package:new_recipe_app/profile_register/presentation/pages/profile_register.dart';
+import 'package:new_recipe_app/recipe_details/presentation/pages/recipe_details_page.dart';
 
 import '../../categories/data/repositories/categories_repository.dart';
 import '../../categories/presentation/manager/categories_view_model.dart';
@@ -24,7 +26,7 @@ final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 final GoRouter router = GoRouter(
   navigatorKey: navigatorKey,
-  initialLocation: '/login',
+  initialLocation: Routes.signup,
   routes: [
     GoRoute(
       path: Routes.login,
@@ -77,7 +79,7 @@ final GoRouter router = GoRouter(
       ),
     ),
     GoRoute(
-      path: '/categories',
+      path: Routes.categories,
       builder: (context, state) => CategoriesPage(
         cvm: CategoriesViewModel(
           repo: CategoriesRepository(
@@ -85,6 +87,13 @@ final GoRouter router = GoRouter(
           ),
         ),
       ),
+    ),
+    GoRoute(
+        path: Routes.registerProfile,
+        builder: (context, state) => RegisterProfile()),
+    GoRoute(
+      path: Routes.recipeDetails,
+      builder: (context, state) => RecipeDetailsPage(),
     ),
   ],
 );

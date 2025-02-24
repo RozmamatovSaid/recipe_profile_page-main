@@ -6,7 +6,7 @@ import 'package:new_recipe_app/core/secure_storage.dart';
 import 'package:new_recipe_app/login/data/model/user_model.dart';
 
 class ApiClient {
-  final Dio dio = Dio(BaseOptions(baseUrl: "http://172.29.16.1:8888/api/v1"));
+  final Dio dio = Dio(BaseOptions(baseUrl: "http://172.24.96.1:8888/api/v1"));
 
   Future<Map<String, dynamic>> fetchMyProfile() async {
     try {
@@ -80,7 +80,6 @@ class ApiClient {
   Future<String> login(String login, String password) async {
     var response = await dio
         .post('/auth/login', data: {'login': login, 'password': password});
-      // print("1111111111111111111111111111111${response}");
     if (response.statusCode == 200) {
       Map<String, String> data = Map<String, String>.from(response.data);
       return data['accessToken']!;
@@ -94,11 +93,9 @@ class ApiClient {
       '/auth/register',
       data: model.toJson(),
     );
-    print("111111111111111111111111111111${response.statusCode}");
     if (response.statusCode == 201) {
       return true;
     } else {
-      print("111123454321234567654321234567898765432134589");
       return false;
     }
   }

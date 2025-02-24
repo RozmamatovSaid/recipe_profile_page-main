@@ -6,10 +6,14 @@ class elevatedbutton_widget extends StatelessWidget {
     super.key,
     required this.text,
     required this.onPressed,
+    this.backgroundColor = AppColors.pinkSub,
+    this.textColor = AppColors.pink,
   });
 
   final String text;
   final VoidCallback onPressed;
+  final Color backgroundColor;
+  final Color textColor;
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +28,10 @@ class elevatedbutton_widget extends StatelessWidget {
       ),
       style: ButtonStyle(
         foregroundColor: WidgetStateProperty.all(
-          AppColors.pinkSub,
+          textColor,
         ),
         backgroundColor: WidgetStateProperty.all(
-          AppColors.pink,
+          backgroundColor,
         ),
         fixedSize: WidgetStateProperty.all(const Size(207, 45)),
       ),

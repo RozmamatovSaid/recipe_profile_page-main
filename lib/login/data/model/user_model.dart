@@ -18,7 +18,7 @@ class UserModel {
       "email": email,
       "phoneNumber": phoneNumber,
       "password": password,
-      "dateOfBirth": "${dateOfBirth.day}-${dateOfBirth.month}-${dateOfBirth.year}",
+      "birthDate": "${dateOfBirth.year}-${dateOfBirth.month}-${dateOfBirth.day}",
     };
   }
 }
