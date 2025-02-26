@@ -1,8 +1,8 @@
 import '../../../core/client.dart';
 import '../models/recipes_model.dart';
 
-class RecipeRepository {
-  RecipeRepository({required this.client});
+class BodyRecipesRepo {
+  BodyRecipesRepo({required this.client});
 
   final ApiClient client;
 

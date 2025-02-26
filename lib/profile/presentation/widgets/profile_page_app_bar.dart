@@ -30,15 +30,19 @@ class ProfilePageAppBar extends StatelessWidget implements PreferredSizeWidget {
         title: profile_appbar_title(vm: vm),
         actions: [
           Align(
-            child:
-                profile_appbar_action_container(svg: "assets/icons/plus.svg"),
+            child: AppBarActionContainer(
+              svg: "assets/icons/plus.svg",
+              callback: () {},
+            ),
             alignment: Alignment.topCenter,
           ),
           SizedBox(width: 5),
           Align(
             alignment: Alignment.topCenter,
-            child: profile_appbar_action_container(
-                svg: "assets/icons/categories.svg"),
+            child: AppBarActionContainer(
+              svg: "assets/icons/categories.svg",
+              callback: () {},
+            ),
           ),
         ],
         bottom: profile_appbar_bottom(vm: vm),

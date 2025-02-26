@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:new_recipe_app/core/l10n/app_localizations.dart';
+import 'package:new_recipe_app/core/localization_viewmodel.dart';
 import 'package:new_recipe_app/core/utils/app_colors.dart';
 import 'package:new_recipe_app/login/presentation/manager/sign_up_viewmodel.dart';
 import 'package:new_recipe_app/login/presentation/widgets/actions_language_textbutton.dart';
@@ -22,10 +24,43 @@ class SignUp extends StatelessWidget {
         appBar: AppBar(
           centerTitle: true,
           title: Text(
-            "SignUp",
+            MyLocalizations.of(context)!.signUp,
             style: TextStyle(),
           ),
-          // actions: [Icon(Icons. )],
+          actions: [
+            Row(
+              spacing: 10,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    context.read<LocalizationViewModel>().currentLocale =
+                        Locale("uz");
+                  },
+                  child: Text(
+                    "uz",
+                    style: TextStyle(
+                      fontSize: 18,
+                      // color: AppColors.redPinkMain,
+                    ),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    context.read<LocalizationViewModel>().currentLocale =
+                        Locale("en");
+                  },
+                  child: Text(
+                    "eng",
+                    style: TextStyle(
+                      fontSize: 18,
+                      // color: AppColors.redPinkMain,
+                    ),
+                  ),
+                ),
+                SizedBox(width: 10),
+              ],
+            ),
+          ],
         ),
         body: ListView(
           padding: EdgeInsets.only(
@@ -40,34 +75,34 @@ class SignUp extends StatelessWidget {
                 spacing: 9,
                 children: [
                   textformfield_widget(
-                    text: "Full Name",
+                    text: MyLocalizations.of(context)!.fullName,
                     hintText: "Said",
                     validator: (value) => null,
                     controller:
                         context.read<SignUpViewModel>().firstNameController,
                   ),
                   textformfield_widget(
-                    text: "Last Name",
+                    text: MyLocalizations.of(context)!.lastName,
                     hintText: "Ro'zmamatov",
                     validator: (value) => null,
                     controller:
                         context.read<SignUpViewModel>().lastNameController,
                   ),
                   textformfield_widget(
-                    text: "User Name",
+                    text: MyLocalizations.of(context)!.userName,
                     hintText: "Chef - Said",
                     validator: (value) => null,
                     controller:
                         context.read<SignUpViewModel>().userNameController,
                   ),
                   textformfield_widget(
-                    text: "Email",
+                    text: MyLocalizations.of(context)!.email,
                     hintText: "caidcode@gmail.com",
                     validator: (value) => null,
                     controller: context.read<SignUpViewModel>().emailController,
                   ),
                   textformfield_widget(
-                    text: "Mobile Number",
+                    text: MyLocalizations.of(context)!.mobileNumber,
                     hintText: "+ 998 33 033 51 33",
                     validator: (value) => null,
                     controller:
@@ -75,7 +110,7 @@ class SignUp extends StatelessWidget {
                   ),
                   show_data_picker(),
                   textformfield_widget(
-                    text: "Password",
+                    text: MyLocalizations.of(context)!.password,
                     hintText: " ● ● ● ● ● ● ● ●  ",
                     password: true,
                     controller:
@@ -96,7 +131,7 @@ class SignUp extends StatelessWidget {
                     },
                   ),
                   textformfield_widget(
-                    text: "Confirm Password",
+                    text: MyLocalizations.of(context)!.confirmPassword,
                     hintText: " ● ● ● ● ● ● ● ● ",
                     password: true,
                     controller: context

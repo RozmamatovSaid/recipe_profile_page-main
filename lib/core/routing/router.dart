@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:new_recipe_app/core/routing/routes.dart';
 import 'package:new_recipe_app/profile_register/presentation/pages/profile_register.dart';
-import 'package:new_recipe_app/recipe_details/presentation/pages/recipe_details_page.dart';
-import '../../categories/data/repositories/categories_repository.dart';
+import '../../categories/data/repositories/category_repository.dart';
 import '../../categories/presentation/manager/categories_view_model.dart';
 import '../../categories/presentation/pages/categories_page.dart';
+import '../../category_detail/data/repositories/recipe_repoitory.dart';
+import '../../category_detail/presentation/manager/category_detail_view_model.dart';
+import '../../category_detail/presentation/pages/category_detail_page.dart';
 import '../../login/data/repositories/auth_repository.dart';
 import '../../login/presentation/manager/login_view_model.dart';
 import '../../login/presentation/pages/login_page.dart';
@@ -24,8 +26,21 @@ final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 final GoRouter router = GoRouter(
   navigatorKey: navigatorKey,
-  initialLocation: Routes.signup,
+  initialLocation: Routes.category_detail,
   routes: [
+    GoRoute(
+      path: Routes.category_detail,
+      builder: (context, state) => CategoryDetailPage(
+        vm: CategoryDetailViewModel(
+          catRepo: CategoryRepository(
+            client: ApiClient(),
+          ),
+          recipeRepo: RecipeRepository(
+            client: ApiClient(),
+          ),
+        )..load(),
+      ),
+    ),
     GoRoute(
       path: Routes.login,
       builder: (context, state) => LoginPage(
@@ -44,7 +59,7 @@ final GoRouter router = GoRouter(
       path: '/profile',
       builder: (context, state) => ProfilePage(
         vm: ProfileViewModel(
-          recipeRepo: RecipeRepository(
+          recipeRepo: BodyRecipesRepo(
             client: ApiClient(),
           ),
           profileRepo: ProfileRepository(
@@ -67,7 +82,7 @@ final GoRouter router = GoRouter(
       path: '/onboarding_end',
       builder: (context, state) => OnboardingEnd(
         pvm: ProfileViewModel(
-          recipeRepo: RecipeRepository(
+          recipeRepo: BodyRecipesRepo(
             client: ApiClient(),
           ),
           profileRepo: ProfileRepository(
@@ -80,18 +95,18 @@ final GoRouter router = GoRouter(
       path: Routes.categories,
       builder: (context, state) => CategoriesPage(
         cvm: CategoriesViewModel(
-          repo: CategoriesRepository(
+          repo: CategoryRepository(
             client: ApiClient(),
           ),
         ),
       ),
     ),
     GoRoute(
-        path: Routes.registerProfile,
+        path: Routes.register_profile,
         builder: (context, state) => RegisterProfile()),
-    GoRoute(
-      path: Routes.recipeDetails,
-      builder: (context, state) => RecipeDetailsPage(),
-    ),
+    // GoRoute(
+    //   path: Routes.recipeDetails,
+    //   builder: (context, state) => re(),
+    // ),
   ],
 );

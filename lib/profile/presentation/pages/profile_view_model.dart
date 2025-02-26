@@ -9,7 +9,7 @@ class ProfileViewModel extends ChangeNotifier {
     load();
   }
 
-  final RecipeRepository recipeRepo;
+  final BodyRecipesRepo recipeRepo;
   final ProfileRepository profileRepo;
   ProfileModel? myProfile;
   List<RecipesModel>? myRecipe;

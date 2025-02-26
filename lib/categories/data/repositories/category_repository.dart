@@ -1,8 +1,8 @@
 import 'package:new_recipe_app/categories/data/models/categories_model.dart';
 import 'package:new_recipe_app/core/client.dart';
 
-class CategoriesRepository {
-  CategoriesRepository({required this.client});
+class CategoryRepository {
+  CategoryRepository({required this.client});
 
   final ApiClient client;
 

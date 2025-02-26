@@ -13,8 +13,7 @@ class RegisterProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // var date =
-    //     context.select((RegisterProfileViewModel rvm) => rvm.genderController);
+
     final pvm = context.watch<RegisterProfileViewModel>();
     return Scaffold(
       appBar: AppBar(

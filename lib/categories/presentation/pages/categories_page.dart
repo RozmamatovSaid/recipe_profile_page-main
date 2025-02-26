@@ -27,22 +27,20 @@ class CategoriesPage extends StatelessWidget {
             ),
             centerTitle: true,
           ),
-          body: ListView(
-            children: [
-              GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                ),
-                itemCount: cvm.categories.length,
-                itemBuilder: (context, index) {
-                  return category_item(
-                    image: cvm.categories[index].image,
-                    text: cvm.categories[index].title,
-                  );
-                },
-              ),
-            ],
+          body: GridView.builder(
+            shrinkWrap: true,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+            ),
+            itemCount: cvm.categories.length,
+            itemBuilder: (context, index) {
+              return category_item(
+                image: cvm.categories[index].image,
+                text: cvm.categories[index].title,
+              );
+            },
           ),
+
         );
       },
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:new_recipe_app/core/l10n/app_localizations.dart';
 import 'package:new_recipe_app/core/utils/app_colors.dart';
 import 'package:new_recipe_app/login/presentation/manager/sign_up_viewmodel.dart';
 import 'package:provider/provider.dart';
@@ -16,7 +17,7 @@ class show_data_picker extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Date Of Birth",
+          MyLocalizations.of(context)!.dateOfBirth,
           style: TextStyle(
             color: Colors.white,
             fontSize: 15,

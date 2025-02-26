@@ -28,7 +28,7 @@ class login_elevated_button extends StatelessWidget {
           text,
           style: TextStyle(
             color: AppColors.pinkSub,
-            fontSize: 20,
+            fontSize: 15,
             fontWeight: FontWeight.w600,
           ),
         ),

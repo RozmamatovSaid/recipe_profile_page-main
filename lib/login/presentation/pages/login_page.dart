@@ -16,7 +16,12 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.beigeColor,
-      appBar: login_appbar_widget(title: 'login'),
+      appBar: AppBarWidget(
+        title: 'login',
+        leading: '',
+        firstAction: '',
+        secondAction: '',
+      ),
       body: ListView(
         padding: EdgeInsets.only(top: 152, right: 30, left: 30),
         children: [
@@ -44,9 +49,7 @@ class LoginPage extends StatelessWidget {
               context.go("/SignUp");
             },
           ),
-          SizedBox(
-            height: 67
-          ),
+          SizedBox(height: 67),
           TextButton(
             onPressed: () {},
             child: Text(
