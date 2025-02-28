@@ -6,7 +6,7 @@ import 'package:new_recipe_app/core/secure_storage.dart';
 import 'package:new_recipe_app/login/data/model/user_model.dart';
 
 class ApiClient {
-  final Dio dio = Dio(BaseOptions(baseUrl: "http://172.21.128.1:8888/api/v1"));
+  final Dio dio = Dio(BaseOptions(baseUrl: "http://172.19.240.1:8888/api/v1"));
 
   Future<Map<String, dynamic>> fetchMyProfile() async {
     try {
@@ -110,12 +110,12 @@ class ApiClient {
     }
   }
 
-  Future<Map<String, dynamic>> fetchRecipesById(int categoryId) async {
-    var response = await dio.get('/recipes/list?Category=$categoryId');
+  Future<Map<String, dynamic>> fetchRecipeById(int recipeId) async {
+    var response = await dio.get('/recipes/detail/$recipeId');
     if (response.statusCode == 200) {
       return response.data;
     } else {
-      throw Exception('/recipes/list?Category=$categoryId ERROR STATUS CODE');
+      throw Exception('/recipes/list?Category=$recipeId ERROR STATUS CODE');
     }
   }
 }

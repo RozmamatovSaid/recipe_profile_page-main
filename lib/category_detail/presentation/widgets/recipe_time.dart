@@ -7,9 +7,11 @@ class RecipeTime extends StatelessWidget {
   const RecipeTime({
     super.key,
     required this.timeRequired,
+    this.color = AppColors.pinkSub,
   });
 
   final int timeRequired;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +21,11 @@ class RecipeTime extends StatelessWidget {
         Text(
           '${timeRequired.toString()}min',
           style: TextStyle(
-            color: AppColors.pinkSub,
+            color: color,
             fontSize: 12,
           ),
         ),
-        SvgPicture.asset('assets/icons/clock.svg'),
+        SvgPicture.asset('assets/icons/clock.svg', color: color),
       ],
     );
   }

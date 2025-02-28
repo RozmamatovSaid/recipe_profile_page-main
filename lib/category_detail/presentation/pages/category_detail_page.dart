@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:new_recipe_app/category_detail/presentation/widgets/recipe_item.dart';
+import 'package:new_recipe_app/core/widgets/bottom_nav_bar.dart';
 import 'package:new_recipe_app/category_detail/presentation/widgets/recipe_app_bar_bottom.dart';
+import 'package:new_recipe_app/category_detail/presentation/widgets/recipe_item.dart';
 import 'package:new_recipe_app/core/utils/app_colors.dart';
 import 'package:new_recipe_app/login/presentation/widgets/login_appbar_widget.dart';
 
@@ -39,38 +39,7 @@ class CategoryDetailPage extends StatelessWidget {
                   RecipeItem(recipe: vm.recipes[index]),
             ),
             extendBody: true,
-            bottomNavigationBar: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Container(
-                  width: 281,
-                  height: 51,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(33),
-                    color: AppColors.redPinkMain,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      IconButton(
-                          onPressed: () {},
-                          icon: SvgPicture.asset('assets/icons/home.svg')),
-                      IconButton(
-                          onPressed: () {},
-                          icon: SvgPicture.asset('assets/icons/community.svg')),
-                      IconButton(
-                          onPressed: () {},
-                          icon: SvgPicture.asset(
-                              'assets/icons/category_item.svg')),
-                      IconButton(
-                          onPressed: () {},
-                          icon: SvgPicture.asset('assets/icons/profile.svg')),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 33),
-              ],
-            ),
+            bottomNavigationBar: BottomNavBar(),
           );
         }
       },

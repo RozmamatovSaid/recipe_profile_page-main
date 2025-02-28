@@ -37,4 +37,10 @@ class MyLocalizationsUz extends MyLocalizations {
 
   @override
   String get signUpButton => 'Ro\'yxatdan o\'tish';
+
+  @override
+  String get login => 'Tizimga Kirish';
+
+  @override
+  String get signup => 'Ro\'yxatdan o\'tish';
 }

@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:new_recipe_app/core/routing/routes.dart';
 import 'package:new_recipe_app/profile_register/presentation/pages/profile_register.dart';
+import 'package:new_recipe_app/recipe_detail/presentation/manager/recipe_detail_view_model.dart';
+import 'package:new_recipe_app/recipe_detail/presentation/pages/recipe_detail_page.dart';
+import 'package:provider/provider.dart';
 import '../../categories/data/repositories/category_repository.dart';
 import '../../categories/presentation/manager/categories_view_model.dart';
 import '../../categories/presentation/pages/categories_page.dart';
@@ -26,8 +29,18 @@ final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 final GoRouter router = GoRouter(
   navigatorKey: navigatorKey,
-  initialLocation: Routes.category_detail,
+  initialLocation: '/recipe-detail/1',
   routes: [
+    GoRoute(
+      path: Routes.recipe_detail,
+      builder: (context, state) => ChangeNotifierProvider(
+        create: (context) => RecipeDetailViewModel(
+          recipeRepo: context.read(),
+          recipeId: int.parse(state.pathParameters['recipeId']!),
+        ),
+        child: RecipeDetailPage(),
+      ),
+    ),
     GoRoute(
       path: Routes.category_detail,
       builder: (context, state) => CategoryDetailPage(
@@ -104,9 +117,5 @@ final GoRouter router = GoRouter(
     GoRoute(
         path: Routes.register_profile,
         builder: (context, state) => RegisterProfile()),
-    // GoRoute(
-    //   path: Routes.recipeDetails,
-    //   builder: (context, state) => re(),
-    // ),
   ],
 );

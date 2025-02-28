@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:new_recipe_app/core/l10n/app_localizations.dart';
+import 'package:new_recipe_app/core/localization_viewmodel.dart';
 import 'package:new_recipe_app/core/utils/app_colors.dart';
 import 'package:new_recipe_app/login/presentation/manager/login_view_model.dart';
 import 'package:new_recipe_app/login/presentation/widgets/social_networks.dart';
-import 'package:new_recipe_app/login/presentation/widgets/login_appbar_widget.dart';
 import 'package:new_recipe_app/login/presentation/widgets/login_password.dart';
 import 'package:new_recipe_app/login/presentation/widgets/login_elevated_button.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key, required this.vm});
@@ -16,11 +18,14 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.beigeColor,
-      appBar: AppBarWidget(
-        title: 'login',
-        leading: '',
-        firstAction: '',
-        secondAction: '',
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          MyLocalizations.of(context)!.login,
+          style: TextStyle(
+            color: AppColors.redPinkMain,
+          ),
+        ),
       ),
       body: ListView(
         padding: EdgeInsets.only(top: 152, right: 30, left: 30),
@@ -28,13 +33,17 @@ class LoginPage extends StatelessWidget {
           login_body_form(vm: vm),
           SizedBox(height: 89),
           login_elevated_button(
-            text: 'Log In',
+            text: MyLocalizations.of(context)!.login,
             callback: () async {
               if (vm.formKey.currentState!.validate() && context.mounted) {
                 if (await vm.login()) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text("BANZAYYYYYYYYYY"),
+                      backgroundColor: AppColors.redPinkMain,
+                      content: Text(
+                        "SUCCESS",
+                        style: TextStyle(color: AppColors.beigeColor),
+                      ),
                     ),
                   );
                   context.go('/SignUp');
@@ -44,7 +53,7 @@ class LoginPage extends StatelessWidget {
           ),
           SizedBox(height: 10),
           login_elevated_button(
-            text: 'Sign Up',
+            text: MyLocalizations.of(context)!.signUp,
             callback: () {
               context.go("/SignUp");
             },

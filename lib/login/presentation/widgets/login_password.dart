@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:new_recipe_app/core/l10n/app_localizations_en.dart';
 import 'package:new_recipe_app/login/presentation/manager/login_view_model.dart';
 import 'package:new_recipe_app/login/presentation/widgets/textformfield_widget.dart';
+
+import '../../../core/l10n/app_localizations.dart';
 
 class login_body_form extends StatelessWidget {
   const login_body_form({
@@ -18,12 +21,12 @@ class login_body_form extends StatelessWidget {
         spacing: 10,
         children: [
           textformfield_widget(
-            text: 'Login',
+            text: MyLocalizations.of(context)!.login,
             hintText: 'example@example.com',
             controller: vm.loginController,
           ),
           textformfield_widget(
-            text: "Password",
+            text: MyLocalizations.of(context)!.password,
             hintText: "● ● ● ● ● ● ● ●",
             controller: vm.passwordController,
           ),

@@ -8,5 +8,7 @@
   "dateOfBirth": "Date Of Birth",
   "password": "Password",
   "confirmPassword": "Confirm Password",
-  "signUpButton": "Sign Up"
+  "signUpButton": "Sign Up",
+  "login": "Login",
+  "signup": "Sign Up"
 }

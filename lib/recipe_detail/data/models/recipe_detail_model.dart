@@ -37,7 +37,7 @@ class RecipeDetailModel {
       videoRecipe: json['videoRecipe'],
       timeRequired: json['timeRequired'],
       rating: json['rating'],
-      user: json['user'],
+      user: RecipeDetailUserModel.fromJson(json['user']),
       instructions: (json['instructions'] as List<dynamic>)
           .map((e) => RecipeDetailInstructionModel.fromJson(e))
           .toList(),

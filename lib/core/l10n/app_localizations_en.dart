@@ -37,4 +37,10 @@ class MyLocalizationsEn extends MyLocalizations {
 
   @override
   String get signUpButton => 'Sign Up';
+
+  @override
+  String get login => 'Login';
+
+  @override
+  String get signup => 'Sign Up';
 }

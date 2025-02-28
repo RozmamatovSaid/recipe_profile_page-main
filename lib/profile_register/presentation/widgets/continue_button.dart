@@ -16,7 +16,7 @@ class continue_button extends StatelessWidget {
       child: elevatedbutton_widget(
         text: "Continue",
         onPressed: () {
-          context.go(Routes.recipeDetails);
+          context.go(Routes.category_detail);
         },
         backgroundColor: AppColors.redPinkMain,
         textColor: AppColors.pink,

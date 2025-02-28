@@ -1,3 +1,4 @@
+import 'package:new_recipe_app/category_detail/data/repositories/recipe_repoitory.dart';
 import 'package:new_recipe_app/core/client.dart';
 import 'package:new_recipe_app/core/localization_viewmodel.dart';
 import 'package:new_recipe_app/login/data/repositories/auth_repository.dart';
@@ -28,6 +29,11 @@ List<SingleChildWidget> providers = [
       repo: OnBoardingRepository(
         client: context.read(),
       ),
+    ),
+  ),
+  Provider(
+    create: (context) => RecipeRepository(
+      client: context.read(),
     ),
   ),
   ChangeNotifierProvider(create: (context) => LocalizationViewModel()),

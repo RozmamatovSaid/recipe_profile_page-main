@@ -12,6 +12,8 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
     required this.secondAction,
     this.bottom,
     this.toolbarHeight = 72,
+    this.horizontalPadding = 36,
+    this.vertical = 10,
   });
 
   final String title;
@@ -20,6 +22,8 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   final String secondAction;
   final double toolbarHeight;
   final PreferredSizeWidget? bottom;
+  final double horizontalPadding;
+  final vertical;
 
   @override
   Size get preferredSize {
@@ -32,7 +36,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 36,vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
       child: AppBar(
         toolbarHeight: 72,
         backgroundColor: AppColors.beigeColor,
