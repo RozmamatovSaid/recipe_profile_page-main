@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:new_recipe_app/category_detail/presentation/widgets/recipe_rating.dart';
 import 'package:new_recipe_app/core/utils/app_colors.dart';
+import 'package:new_recipe_app/profile_register/presentation/widgets/video_player_widget.dart';
 import 'package:new_recipe_app/recipe_detail/presentation/manager/recipe_detail_view_model.dart';
+import 'package:new_recipe_app/recipe_detail/presentation/pages/recipe_detail_video.dart';
 
 class FoodWidget extends StatelessWidget {
   const FoodWidget({
@@ -21,57 +23,72 @@ class FoodWidget extends StatelessWidget {
         color: AppColors.redPinkMain,
         borderRadius: BorderRadius.circular(10),
       ),
-      child: Column(
+      child: Stack(
+        alignment: Alignment.topCenter,
         children: [
-          Align(
-            alignment: Alignment.topCenter,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: Image.network(
-                vm.recipe.photo,
-                width: double.infinity,
-                height: 281,
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  vm.recipe.title,
-                  style: TextStyle(
-                    color: AppColors.milkWhite,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 20,
-                  ),
+          Column(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.network(
+                  vm.recipe.photo,
+                  width: double.infinity,
+                  height: 281,
+                  fit: BoxFit.cover,
                 ),
-                Row(
-                  spacing: 10,
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    RecipeRating(
-                      rating: vm.recipe.rating,
-                      textColor: AppColors.milkWhite,
-                      svgColor: AppColors.milkWhite,
+                    Text(
+                      vm.recipe.title,
+                      style: TextStyle(
+                        color: AppColors.milkWhite,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 20,
+                      ),
                     ),
                     Row(
-                      spacing: 5,
+                      spacing: 10,
                       children: [
-                        SvgPicture.asset(
-                          "assets/icons/sms.svg",
-                          colorFilter: ColorFilter.mode(
-                              AppColors.milkWhite, BlendMode.srcIn),
+                        RecipeRating(
+                          rating: vm.recipe.rating,
+                          textColor: AppColors.milkWhite,
+                          svgColor: AppColors.milkWhite,
                         ),
-                        Text(
-                          vm.recipe.timeRequired.toString(),
+                        Row(
+                          spacing: 5,
+                          children: [
+                            SvgPicture.asset(
+                              "assets/icons/sms.svg",
+                              colorFilter: ColorFilter.mode(
+                                  AppColors.milkWhite, BlendMode.srcIn),
+                            ),
+                            Text(
+                              vm.recipe.timeRequired.toString(),
+                            ),
+                          ],
                         ),
                       ],
                     ),
                   ],
                 ),
-              ],
+              ),
+            ],
+          ),
+          Positioned(
+            top: 105,
+            child: IconButton(
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) =>
+                      RecipeDetailVideo(videoUrl: vm.recipe.videoRecipe),
+                ),
+              ),
+              icon: SvgPicture.asset("assets/icons/video.svg"),
             ),
           ),
         ],

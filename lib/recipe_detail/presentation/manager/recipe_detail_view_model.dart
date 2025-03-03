@@ -87,4 +87,5 @@ class RecipeDetailViewModel extends ChangeNotifier {
       );
     }).toList();
   }
+  
 }
