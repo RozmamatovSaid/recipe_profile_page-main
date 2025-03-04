@@ -6,7 +6,7 @@ import 'package:new_recipe_app/core/secure_storage.dart';
 import 'package:new_recipe_app/login/data/model/user_model.dart';
 
 class ApiClient {
-  final Dio dio = Dio(BaseOptions(baseUrl: "http://172.22.128.1:8888/api/v1"));
+  final Dio dio = Dio(BaseOptions(baseUrl: "http://172.28.0.1:8888/api/v1"));
 
   Future<Map<String, dynamic>> fetchMyProfile() async {
     try {

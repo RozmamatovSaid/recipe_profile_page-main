@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_recipe_app/core/utils/app_colors.dart';
 import 'package:new_recipe_app/onboarding/presentation/manager/onboarding_view_model.dart';
 import 'package:new_recipe_app/onboarding/presentation/widgets/onboarding_appbar.dart';
@@ -25,7 +26,7 @@ final int index;
         ),
         Container(
           width: double.infinity,
-          height: 444,
+          height: 444.h,
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,

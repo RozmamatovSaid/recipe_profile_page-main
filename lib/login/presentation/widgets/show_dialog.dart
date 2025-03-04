@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_recipe_app/core/utils/app_colors.dart';
 
 class ShowDialogPicker extends StatelessWidget {
@@ -17,8 +18,8 @@ class ShowDialogPicker extends StatelessWidget {
             left: 37,
             bottom: 43,
           ),
-          width: 250,
-          height: 286,
+          width: 250.w,
+          height: 286.h,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -37,8 +38,8 @@ class ShowDialogPicker extends StatelessWidget {
                     fontWeight: FontWeight.w600),
               ),
               Container(
-                width: 82,
-                height: 82,
+                width: 82.w,
+                height: 82.h,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(41),
                   color: AppColors.pink,
@@ -52,9 +53,10 @@ class ShowDialogPicker extends StatelessWidget {
                   "Lorem ipsum dolor sit amet pretium cras id dui pellentesque ornare. Quisque malesuada.",
                   maxLines: 4,
                   style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w400,
-                      fontSize: 13),
+                    color: Colors.black,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 13,
+                  ),
                 ),
               )
             ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:new_recipe_app/core/utils/app_colors.dart';
 import 'package:new_recipe_app/profile_register/presentation/manager/profile_register_viewmodel.dart';
@@ -25,8 +26,8 @@ class avatar_image_picker extends StatelessWidget {
             child: context.watch<RegisterProfileViewModel>().image == null
                 ? SvgPicture.asset(
                     "assets/Person.svg",
-                    width: 80,
-                    height: 80,
+                    width: 80.w,
+                    height: 80.h,
                   )
                 : null,
           ),
@@ -34,8 +35,8 @@ class avatar_image_picker extends StatelessWidget {
             bottom: 0,
             right: 0,
             child: Container(
-              width: 30,
-              height: 30,
+              width: 30.w,
+              height: 30.h,
               decoration: BoxDecoration(
                 color: AppColors.redPinkMain,
                 borderRadius: BorderRadius.circular(

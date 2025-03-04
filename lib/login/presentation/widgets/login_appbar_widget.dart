@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:new_recipe_app/core/utils/app_colors.dart';
 import 'package:new_recipe_app/profile/presentation/widgets/profile_appbar_action_container.dart';
@@ -12,8 +13,6 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
     required this.secondAction,
     this.bottom,
     this.toolbarHeight = 72,
-    this.horizontalPadding = 36,
-    this.vertical = 10,
   });
 
   final String title;
@@ -22,8 +21,6 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   final String secondAction;
   final double toolbarHeight;
   final PreferredSizeWidget? bottom;
-  final double horizontalPadding;
-  final vertical;
 
   @override
   Size get preferredSize {
@@ -36,9 +33,9 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+      padding: EdgeInsets.symmetric(horizontal: 20.w,vertical: 10.h),
       child: AppBar(
-        toolbarHeight: 72,
+        toolbarHeight: 72.h,
         backgroundColor: AppColors.beigeColor,
         centerTitle: true,
         leading: IconButton(

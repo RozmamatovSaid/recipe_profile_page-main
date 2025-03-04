@@ -7,4 +7,5 @@ class Routes {
   // static const recipeDetails = '/recipe-details';
   static const category_detail = '/category-detail';
   static const recipe_detail = '/recipe-detail/:recipeId';
+  static const home = '/home';
 }

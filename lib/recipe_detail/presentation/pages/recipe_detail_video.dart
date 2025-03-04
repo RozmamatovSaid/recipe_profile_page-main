@@ -30,9 +30,9 @@ class _RecipeDetailVideoState extends State<RecipeDetailVideo> {
     controller = VideoPlayerController.networkUrl(Uri.parse(widget.videoUrl));
     controller.initialize().then(
           (value) => setState(() {
-            controller.play();
-          }),
-        );
+        controller.play();
+      }),
+    );
   }
 
   @override

@@ -1,31 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:new_recipe_app/categories/presentation/manager/categories_view_model.dart';
-
-class category_item extends StatelessWidget {
-  const category_item({
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+class CategoryItem extends StatelessWidget {
+  const CategoryItem({
     super.key,
     required this.image,
-    required this.text,
+    required this.title,
+    this.isMain = false,
   });
 
-  final String image;
-  final String text;
+  final String image, title;
+  final bool isMain;
 
   @override
   Widget build(BuildContext context) {
+    final categoryTitle = Text(
+      title,
+      style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+    );
+    final categoryImage = ClipRRect(
+      borderRadius: BorderRadius.circular(13),
+      child: Image.network(
+        image,
+        width: isMain ? 356.w : 159.w,
+        height: isMain ? 150.h : 145.h,
+        fit: BoxFit.cover,
+      ),
+    );
     return Column(
-      spacing: 8,
+      spacing: isMain ? 3 : 6,
       children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(13),
-          child: Image.network(
-            image,
-            width: 158,
-            height: 145,
-            fit: BoxFit.cover,
-          ),
-        ),
-        Text(text),
+        isMain ? categoryTitle : categoryImage,
+        isMain ? categoryImage : categoryTitle,
       ],
     );
   }

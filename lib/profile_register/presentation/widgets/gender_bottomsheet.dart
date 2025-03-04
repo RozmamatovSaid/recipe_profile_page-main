@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_recipe_app/core/utils/app_colors.dart';
 import 'package:new_recipe_app/profile_register/presentation/manager/profile_register_viewmodel.dart';
 
@@ -75,8 +76,8 @@ class GenderBottomSheet extends StatelessWidget {
           },
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-            width: 358,
-            height: 40,
+            width: 358.w,
+            height: 40.h,
             decoration: BoxDecoration(
               color: AppColors.pink,
               borderRadius: BorderRadius.circular(18),

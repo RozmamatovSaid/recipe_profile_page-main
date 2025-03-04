@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_recipe_app/core/l10n/app_localizations.dart';
 import 'package:new_recipe_app/core/utils/app_colors.dart';
 import 'package:new_recipe_app/login/presentation/manager/sign_up_viewmodel.dart';
@@ -34,8 +35,8 @@ class show_data_picker extends StatelessWidget {
           },
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 20),
-            width: 357,
-            height: 49,
+            width: 357.w,
+            height: 49.h,
             decoration: BoxDecoration(
               color: AppColors.pink,
               borderRadius: BorderRadius.circular(18),

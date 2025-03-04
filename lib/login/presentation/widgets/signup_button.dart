@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:new_recipe_app/core/l10n/app_localizations.dart';
-import 'package:new_recipe_app/core/l10n/app_localizations_en.dart';
 import 'package:new_recipe_app/login/presentation/manager/sign_up_viewmodel.dart';
 import 'package:new_recipe_app/login/presentation/widgets/show_dialog.dart';
 import 'package:new_recipe_app/login/presentation/widgets/login_elevated_button.dart';
@@ -31,7 +30,3 @@ class signup_button extends StatelessWidget {
     );
   }
 }
-// showDialog(
-// context: context,
-// builder: (context) => show_dialog(),
-// );

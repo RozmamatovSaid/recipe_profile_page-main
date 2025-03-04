@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:new_recipe_app/core/routing/routes.dart';
+import 'package:new_recipe_app/home/presentation/pages/home_page.dart';
 import 'package:new_recipe_app/profile_register/presentation/pages/profile_register.dart';
 import 'package:new_recipe_app/recipe_detail/presentation/manager/recipe_detail_view_model.dart';
 import 'package:new_recipe_app/recipe_detail/presentation/pages/recipe_detail_page.dart';
@@ -29,8 +30,13 @@ final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 final GoRouter router = GoRouter(
   navigatorKey: navigatorKey,
-  initialLocation: '/recipe-detail/1',
+  initialLocation: Routes.home,
+  // '/recipe-detail/1'
   routes: [
+    GoRoute(
+      path: Routes.home,
+      builder: (context, state) => HomePage(),
+    ),
     GoRoute(
       path: Routes.recipe_detail,
       builder: (context, state) => ChangeNotifierProvider(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_recipe_app/core/widgets/bottom_nav_bar.dart';
 import 'package:new_recipe_app/category_detail/presentation/widgets/recipe_app_bar_bottom.dart';
 import 'package:new_recipe_app/category_detail/presentation/widgets/recipe_item.dart';
@@ -31,7 +32,7 @@ class CategoryDetailPage extends StatelessWidget {
             ),
             body: GridView.builder(
               padding:
-                  EdgeInsets.only(right: 20, left: 20, top: 36, bottom: 120),
+                  EdgeInsets.only(right: 20.w, left: 20.w, top: 36.h, bottom: 120.h),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2, mainAxisExtent: 226, mainAxisSpacing: 30),
               itemCount: vm.recipes.length,

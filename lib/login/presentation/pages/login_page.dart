@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:new_recipe_app/core/l10n/app_localizations.dart';
 import 'package:new_recipe_app/core/localization_viewmodel.dart';
@@ -28,7 +29,7 @@ class LoginPage extends StatelessWidget {
         ),
       ),
       body: ListView(
-        padding: EdgeInsets.only(top: 152, right: 30, left: 30),
+        padding: EdgeInsets.only(top: 152.h, right: 30.w, left: 30.w),
         children: [
           login_body_form(vm: vm),
           SizedBox(height: 89),
@@ -58,7 +59,7 @@ class LoginPage extends StatelessWidget {
               context.go("/SignUp");
             },
           ),
-          SizedBox(height: 67),
+          SizedBox(height: 67.h),
           TextButton(
             onPressed: () {},
             child: Text(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_recipe_app/category_detail/data/models/recipe_model.dart';
 import 'package:new_recipe_app/category_detail/presentation/widgets/recipe_item_description.dart';
 import 'package:new_recipe_app/category_detail/presentation/widgets/recipe_item_image.dart';

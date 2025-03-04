@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:new_recipe_app/core/l10n/app_localizations_en.dart';
 import 'package:new_recipe_app/login/presentation/manager/login_view_model.dart';
 import 'package:new_recipe_app/login/presentation/widgets/textformfield_widget.dart';
 
