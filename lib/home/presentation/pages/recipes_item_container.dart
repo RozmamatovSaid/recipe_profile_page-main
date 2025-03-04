@@ -7,7 +7,14 @@ import 'package:new_recipe_app/core/utils/app_colors.dart';
 class RecipesItemContainer extends StatelessWidget {
   const RecipesItemContainer({
     super.key,
+    required this.image,
+    required this.title,
+    required this.rating,
+    required this.time,
   });
+
+  final String image, title;
+  final int rating, time;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +24,7 @@ class RecipesItemContainer extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(14),
           child: Image(
-            image: AssetImage("assets/images/breakfast.png"),
+            image: AssetImage(image),
             width: 168.w,
             height: 162.h,
             fit: BoxFit.cover,
@@ -37,7 +44,7 @@ class RecipesItemContainer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Breakfast",
+                  title,
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w400,
@@ -47,8 +54,9 @@ class RecipesItemContainer extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    RecipeRating(rating: 5),
-                    RecipeTime(timeRequired: 15, color: AppColors.redPinkMain),
+                    RecipeRating(rating: rating),
+                    RecipeTime(
+                        timeRequired: time, color: AppColors.redPinkMain),
                   ],
                 ),
               ],
